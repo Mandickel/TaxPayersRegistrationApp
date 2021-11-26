@@ -1,0 +1,83 @@
+﻿@model IEnumerable<TaxPayersRegistration.Models.UserViewModel>
+
+@{
+    ViewBag.Title = "Clients";
+}
+
+<h2>Tax Payers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create") ||@Html.ActionLink("Logout", "Logout")
+
+</p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TPIN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessCertificateNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TradingName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessRegistrationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MobileNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysicalLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deleted)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TPIN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusinessCertificateNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TradingName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusinessRegistrationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MobileNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhysicalLocation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deleted)
+                </td>
+                <td>@Html.ActionLink("Edit", "Edit", new { id = item.id,Deleted = item.Deleted })</td>
+                <td> @Html.ActionLink("Delete", "Delete", new { id = item.id })</td>
+
+
+            </tr>
+        }
+
+    </table>
